@@ -1,0 +1,55 @@
+First
+
+#404040				Dark
+
+#32658D
+
+#3D79A8
+
+#488FC7
+
+#51A2E0				Bright
+
+https://color.adobe.com/de/Business-MC-Blue-color-theme-1160943/edit/?copy=true&base=2&rule=Custom&selected=4&name=Kopie%20von%20Business%20MC%20Blue&mode=cmyk&rgbvalues=0.25098039215686274,0.25098039215686274,0.25098039215686274,0.196078431372549,0.39607843137254894,0.5529411764705883,0.23921568627450984,0.4745098039215686,0.6588235294117647,0.2823529411764706,0.5607843137254902,0.7803921568627451,0.3176470588235294,0.6352941176470588,0.8784313725490196&swatchOrder=0,1,2,3,4
+
+Second
+
+#B7BBCB				Bright
+
+#858DA9
+
+#3E4F72
+
+#2C3D5B
+
+#1D2C43				Dark
+
+https://color.adobe.com/de/blue-duplex-color-theme-4096213/edit/?copy=true
+
+Third
+
+#082136				Dark
+	
+#00294D
+
+#004B8D
+
+#0068C4
+
+#2998FF				Bright
+
+https://color.adobe.com/de/Business-MC-Blue-color-theme-1160943/
+
+Fourth
+
+#2C365E
+
+#386FA4
+
+#59A5D8
+
+#C05746
+
+#EF8354
+
+http://app.coolors.co/2c365e-386fa4-59a5d8-c05746-ef8354

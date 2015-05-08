@@ -1,0 +1,77 @@
+/*CSS created by bkunzm*/
+
+
+body {
+    background-color: #dedede;
+}
+.navbar {
+    border-radius: 0;
+    border: none;
+    background-color: rgb(170, 51, 35);
+    height: 75px;
+    margin: 0;
+}
+
+.navbar-title {
+    font-family: 'Play', sans-serif;
+    font-weight: 900;
+    font-size: 55px;
+    width: auto;
+}
+
+.navbar-title {
+    padding: 0 20px 0 20px;
+    line-height: 75px;
+}
+
+.navbar-link {
+    float: right;
+}
+
+.navbar-link a {
+    font-size: 30px;
+    line-height: 75px;
+    display: block;
+    float: left;
+    padding: 0 20px 0 20px;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+    background-color: rgb(170, 51, 35);
+}
+
+.navbar-link a:hover {
+    background-color: rgb(150, 31, 15);
+    box-shadow: inset 0 0 10px 0 rgb(120, 1, 0);
+}
+
+div.navbar-loggedin {
+}
+a.navbar-loggedin {
+    float: right;
+    font-size: 20px;
+    line-height: 37px;
+    border-left: solid 1px rgba(34, 34, 34, 0.2);
+    text-align: center;
+}
+
+a {
+    color: #222222;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #222222;
+}
+
+a:focus {
+    text-decoration: none;
+}
+@media (max-width: 962px){
+    .navbar {
+        height: 150px;
+    }
+}

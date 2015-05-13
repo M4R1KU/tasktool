@@ -3,8 +3,8 @@ $login = false;
 
 if($login){
 
-    echo '<a href="#" class="navbar-loggedin">Logout<br>Mario</a>';
+    echo '<a href="index.php?site=login" class="navbar-loggedin">Logout<br>Mario</a>';
 }
 else {
-    echo '<a href="#">Log In</a>';
+    echo '<a href="index.php?site=login">Log In</a>';
 }

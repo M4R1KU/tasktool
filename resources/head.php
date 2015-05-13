@@ -12,6 +12,7 @@
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
     <title>Test...1...2...3...</title>
 
 </head>

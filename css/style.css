@@ -2,12 +2,13 @@
 
 
 body {
-    background-color: #dedede;
+    background-color: #eeeeee;
 }
+
 .navbar {
     border-radius: 0;
     border: none;
-    background-color: rgb(170, 51, 35);
+    background-color: #aa3323;
     height: 75px;
     margin: 0;
 }
@@ -24,11 +25,11 @@ body {
     line-height: 75px;
 }
 
-.navbar-link {
+#navbar-link {
     float: right;
 }
 
-.navbar-link a {
+#navbar-link a {
     font-size: 30px;
     line-height: 75px;
     display: block;
@@ -36,16 +37,14 @@ body {
     padding: 0 20px 0 20px;
     font-family: 'Play', sans-serif;
     font-weight: bold;
-    background-color: rgb(170, 51, 35);
+    background-color: #aa3323;
 }
 
-.navbar-link a:hover {
-    background-color: rgb(150, 31, 15);
-    box-shadow: inset 0 0 10px 0 rgb(120, 1, 0);
+#navbar-link a:hover {
+    background-color: #961f0f;
+    box-shadow: inset 0 0 10px 0 #780100;
 }
 
-div.navbar-loggedin {
-}
 a.navbar-loggedin {
     float: right;
     font-size: 20px;
@@ -53,7 +52,6 @@ a.navbar-loggedin {
     border-left: solid 1px rgba(34, 34, 34, 0.2);
     text-align: center;
 }
-
 a {
     color: #222222;
     text-decoration: none;
@@ -61,6 +59,7 @@ a {
 
 a:hover {
     text-decoration: none;
+    color: #222222;
 }
 
 a:visited {
@@ -70,8 +69,41 @@ a:visited {
 a:focus {
     text-decoration: none;
 }
+.trigger {
+    display:none;
+}
 @media (max-width: 962px){
     .navbar {
-        height: 150px;
+        border: none;
+        margin: 0;
     }
+    #navbar-link {
+        height: 375px;
+        width: 200px;
+        z-index: 10;
+        position: absolute;
+        transition: all 1s ease-in-out;
+        float: none;
+    }
+    #navbar-link a {
+        width: 200px;
+        text-align: center;
+    }
+    .left {
+        left: -200px;
+    }
+    .show {
+        left: 0;
+    }
+    .trigger {
+        display: block;
+        float: right;
+    }
+
+
 }
+
+
+
+
+

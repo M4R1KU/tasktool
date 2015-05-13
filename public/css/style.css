@@ -93,6 +93,15 @@ a:focus {
     border-color: #425180;
 }
 
+.validation-success {
+    border: 1px solid #419641;
+    box-shadow: 0 0 5px 0 #419641;
+}
+.validation-error {
+    border: 1px solid #aa3323;
+    box-shadow: 0 0 5px 0 #aa3323;
+}
+
 @media (max-width: 962px){
     .navbar {
         border: none;

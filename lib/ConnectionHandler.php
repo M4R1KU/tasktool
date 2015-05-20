@@ -21,7 +21,6 @@ class ConnectionHandler
                 throw new Exception("Verbindungsfehler: $error");
             }
             else {
-                echo "Alles hat geklappt!!!!    ";
             }
 
             self::$connection->set_charset('utf8');

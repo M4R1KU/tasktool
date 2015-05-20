@@ -1,7 +1,28 @@
+<?php
+require_once('lib/Login.php');
+$login  = new Login();
+
+$name    = null;
+$email   = null;
+$username= null;
+$password= null;
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password'])) {
+    $name     = $_POST['name'];
+    $email    = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    if ($login->register($name, $email, $username, $password)) {
+        $name    = null;
+        $email   = null;
+        $username= null;
+        $password = null;
+    }
+}
+?>
 <div class="container">
     <div class="col-lg-5 panel panel-primary">
         <div class="panel-heading"><h1>Log In</h1></div>
-        <form action="index.php?site=about" method="post">
+        <form action="index.php?site=login" method="post">
             <div class="form-group panel-body">
                 <!--Form for Log In-->
                 <div class="form-group"><label for="username">Username</label>
@@ -21,6 +42,7 @@
     <div class="col-lg-5 panel panel-primary">
         <div class="panel-heading"><h1>Sign Up</h1></div>
         <form action="index.php?site=about" method="post">
+        <form action="index.php?site=login" method="post">
             <div class="panel-body">
                 <!--Form for Sign Up-->
                 <div class="form-group"><label for="name">Name</label>

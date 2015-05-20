@@ -6,6 +6,7 @@
       <?php
       require_once('lib/ConnectionHandler.php');
 
+
       $query = 'SELECT * FROM USER ';
 
       $statement = ConnectionHandler::getConnection()->prepare($query);
@@ -21,14 +22,11 @@
           $rows[] = $row;
       }
 
-
-
-
-      echo '<ul>';
-      foreach ($rows as $row ) {
-          echo "<li>{$row->name} / {$row->email} / {$row->username} / {$row->password} </li>";
-      }
-      echo '</ul>';
+//      echo '<ul>';
+//      foreach ($rows as $row ) {
+//          echo "<li>{$row->name} / {$row->email} / {$row->username} </li>";
+//      }
+//      echo '</ul>';
 
 
 

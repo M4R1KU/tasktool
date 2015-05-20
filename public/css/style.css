@@ -101,7 +101,12 @@ a:focus {
     border: 1px solid #aa3323;
     box-shadow: 0 0 5px 0 #aa3323;
 }
-
+.form-control:focus {
+    border-color: #cccccc;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 @media (max-width: 962px){
     .navbar {
         border: none;

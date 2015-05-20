@@ -1,18 +1,29 @@
 $(document).ready(function (){
 
+    var e = "#email";
+    var n = "#name";
     var emailPattern = /\S+@\S+\.\S+/;
+    var namePattern = /[a-zA-Z]+/;
 
-    $("#email").change(function (){
-        $(this).removeClass("validation-success");
-        $(this).removeClass("validation-error")
+    $(n).keyup(function() {
+        toggleClasses(n, namePattern);
+    });
 
-        if(emailPattern.test($("#email").val())) {
-            $(this).addClass("validation-success");
+    $(e).keyup(function (){
+        toggleClasses(e, emailPattern);
+    });
+
+    function toggleClasses(element, pattern) {
+        $(element).removeClass("validation-success");
+        $(element).removeClass("validation-error");
+
+
+        if(pattern.test($(element).val())) {
+            $(element).addClass("validation-success");
         }
         else {
-            $(this).addClass("validation-error");
+            $(element).addClass("validation-error");
         }
-
-    });
+    }
 
 });

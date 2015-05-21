@@ -34,11 +34,14 @@ class Login
         $row = $result->fetch_object();
 
         if ($row == null) {
-            echo "<script>console.log('false')</script>";
+            echo '<p>false</p>';
             return false;
         }
         else {
-            echo "<script>console.log('true')</script>";
+            echo '<p>true</p>';
+
+            $_SESSION['login-user'] = $username;
+
             return true;
         }
     }

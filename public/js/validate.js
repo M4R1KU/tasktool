@@ -34,11 +34,11 @@ $(document).ready(function () {
         $(element).removeClass("validation-error");
 
 
-        if (pattern.test($(element).val())) {
-            $(element).addClass("validation-success");
+        if (!pattern.test($(element).val()) || $(element).val() == '') {
+            $(element).addClass("validation-error");
         }
         else {
-            $(element).addClass("validation-error");
+            $(element).addClass("validation-success");
         }
     }
 

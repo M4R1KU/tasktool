@@ -105,6 +105,18 @@ a:focus {
     box-shadow: 0 0 5px 0 #aa3323;
 }
 
+#registerinputfail {
+    display: none;
+}
+
+#logininputfail {
+    display: none;
+}
+.panel-danger>.panel-heading {
+    border-color: #f04124;
+    background: #f04124;
+}
+
 @media (max-width: 962px){
     .navbar {
         border: none;

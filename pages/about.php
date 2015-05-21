@@ -3,7 +3,7 @@
   <div class="col-md-4">
     <h2>Test Connection</h2>
 
-      <?php
+<!--
       require_once('lib/ConnectionHandler.php');
 
 
@@ -22,15 +22,12 @@
           $rows[] = $row;
       }
 
-//      echo '<ul>';
-//      foreach ($rows as $row ) {
-//          echo "<li>{$row->name} / {$row->email} / {$row->username} </li>";
-//      }
-//      echo '</ul>';
-
-
-
-    ?>
+      echo '<ul>';
+      foreach ($rows as $row ) {
+          echo "<li>{$row->name} / {$row->email} / {$row->username} </li>";
+      }
+      echo '</ul>';
+      -->
 
   </div>
   <div class="col-md-4">

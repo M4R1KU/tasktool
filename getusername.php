@@ -1,7 +1,6 @@
 <?php
 require_once('lib/ConnectionHandler.php');
 
-//$q = $_GET['username'];
 $q = $_POST['username'];
 
 $query = 'SELECT username FROM user WHERE username = ?';

@@ -1,4 +1,5 @@
 <?php
+session_start();
 // load classes
 require_once('lib/CentralDesign.php');
 $centralDesign = new CentralDesign();

@@ -18,4 +18,28 @@ class Login
         }
 
     }
+
+    public function login_user($username, $password)
+    {
+        $query = 'SELECT username, password FROM user WHERE username = ? and password = ?';
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('ss', $username, $password);
+
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
+        $result = $statement->get_result();
+
+        $row = $result->fetch_object();
+
+        if ($row == null) {
+            echo "<script>console.log('false')</script>";
+            return false;
+        }
+        else {
+            echo "<script>console.log('true')</script>";
+            return true;
+        }
+    }
 }

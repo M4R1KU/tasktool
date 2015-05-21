@@ -20,8 +20,6 @@ class ConnectionHandler
                 $error = self::$connection->connect_error;
                 throw new Exception("Verbindungsfehler: $error");
             }
-            else {
-            }
 
             self::$connection->set_charset('utf8');
         }

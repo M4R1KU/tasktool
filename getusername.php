@@ -13,7 +13,7 @@ $result = $statement->get_result();
 
 $user = $result->fetch_object();
 
-if($user == null){
+if($user == null && $q != ""){
     echo true;
 } else {
     echo false;

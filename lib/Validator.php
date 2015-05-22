@@ -5,37 +5,35 @@ class Validator
 {
     public function isValidMail($mail)
     {
-        if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             return false;
         }
 
         return true;
     }
 
-    public function isFreeUsername($username)
+    public function passwordConfirm($pw, $pwc)
     {
-
-        $query = 'SELECT username FROM user WHERE username = ?';
-
-        $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('s', $username);
-        $statement->execute();
-
-        $result = $statement->get_result();
-
-        $user = $result->fetch_object();
-
-        if ($user == null) {
+        if ($pw == $pwc && $this->valid_pass($pw)) {
             return true;
         } else {
             return false;
         }
-
     }
 
-    public function passwordConfirm($password, $password_conf)
+    public function valid_pass($candidate)
     {
-        if ($password == $password_conf) {
+        if (preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$/', $candidate)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public
+    function valid_name($name)
+    {
+        if (preg_match('/[A-Z][a-z]*[ ][A-Z][a-z]*/', $name)) {
             return true;
         } else {
             return false;

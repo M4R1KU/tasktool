@@ -34,13 +34,11 @@ class Login
         $row = $result->fetch_object();
 
         if ($row == null) {
-            echo '<p>false</p>';
             return false;
         }
         else {
-            echo '<p>true</p>';
-
             $_SESSION['login-user'] = $username;
+            header("location: /inf-stube14-tasktool/index.php");
 
             return true;
         }

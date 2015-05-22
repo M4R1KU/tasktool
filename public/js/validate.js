@@ -5,9 +5,10 @@ $(document).ready(function () {
     var p = "#password";
     var rp = "#password_confirmed";
     var u = "#username";
-    var emailPattern = /\S+@\S+\.\S+/;
+    var rb = "#register_button";
+    var emailPattern = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/;
     var namePattern = /[A-Z][a-z]*[ ][A-Z][a-z]*/;
-    var pwPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    var pwPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$/;
 
     $(n).keyup(function () {
         toggleClasses(n, namePattern);
@@ -34,7 +35,7 @@ $(document).ready(function () {
         $(element).removeClass("validation-error");
 
 
-        if (!pattern.test($(element).val()) || $(element).val() == '') {
+        if (!pattern.test($(element).val()) || $(element).val() == "") {
             $(element).addClass("validation-error");
         }
         else {
@@ -46,7 +47,7 @@ $(document).ready(function () {
         $(rp).removeClass("validation-success");
         $(rp).removeClass("validation-error");
 
-        if ($(p).val() == $(rp).val()) {
+        if ($(p).val() == $(rp).val() && $(rp).val() != "") {
             $(rp).addClass("validation-success");
         }
         else {
@@ -58,18 +59,18 @@ $(document).ready(function () {
         $.ajax({
             method: 'POST',
             url: 'getusername.php',
-            data: {username : str}
-        }).done(function(exists) {
+            data: {username: str}
+        }).done(function (exists) {
             $(u).removeClass("validation-success");
             $(u).removeClass("validation-error");
-            if (exists){
+            if (exists && str.length > 3) {
                 $(u).addClass("validation-success");
-            }else {
+                $(rb).removeAttr("disabled");
+            } else {
                 $(u).addClass("validation-error");
+                $(rb).attr("disabled", "disabled");
             }
         })
-
-
     }
 
 });

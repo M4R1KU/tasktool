@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar navbar-fixed-top">
     <a href="index.php" class="navbar-title">TaskTool</a>
     <div id="navbar-link" class="left">
         <a href="index.php">Home</a>

@@ -96,21 +96,21 @@
                 <!--Form for Sign Up-->
                 <div class="form-group"><label for="name">Name</label>
                     <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name"
-                           required data-container="body" data-toggle="popover"
+                           required maxlength="45" data-container="body" data-toggle="popover"
                            data-placement="left" data-trigger="focus"
                            data-content="Please enter a valid name. Example: Michael Townley."
                            data-original-title="Name"></div>
 
                 <div class="form-group"><label for="email">E-Mail</label>
                     <input type="email" class="form-control" name="email" id="email"
-                           placeholder="Enter your e-mail address" required data-container="body" data-toggle="popover"
+                           placeholder="Enter your e-mail address" required maxlength="45" data-container="body" data-toggle="popover"
                            data-placement="left" data-trigger="focus"
                            data-content="Please enter a valid E-Mail address. Example: Michael.Townley@example.com."
                            data-original-title="E-Mail"></div>
 
                 <div class="form-group"><label for="username">Username</label>
                     <input type="text" class="form-control" name="username" id="username" placeholder="Enter a username"
-                           required data-container="body" data-toggle="popover"
+                           required maxlength="30" data-container="body" data-toggle="popover"
                            data-placement="left" data-trigger="focus"
                            data-content="The username must be at least 4 characters long."
                            data-original-title="Username"></div>

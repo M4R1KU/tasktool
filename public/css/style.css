@@ -112,15 +112,6 @@ a:focus {
 #logininputfail {
     display: none;
 }
-.alert-danger {
-    border-color: #f04124;
-    background: #f04124;
-}
-
-.alert-success {
-    border-color: #43ac6a;
-    background: #43ac6a;
-}
 
 @media (max-width: 962px){
     .navbar {

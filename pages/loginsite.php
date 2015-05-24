@@ -74,11 +74,11 @@
         <form action="index.php?site=loginsite" method="post">
             <div class="form-group panel-body">
                 <!--Form for Log In-->
-                <div class="form-group"><label for="username">Username</label>
+                <div class="form-group"><label for="login_username">Username</label>
                     <input type="text" class="form-control" name="login_username" id="login_username"
                            placeholder="Enter your username"></div>
 
-                <div class="form-group"><label for="pasword">Password</label>
+                <div class="form-group"><label for="login_pasword">Password</label>
                     <input type="password" class="form-control" name="login_password" id="login_password"
                            placeholder="Enter your password"></div>
 

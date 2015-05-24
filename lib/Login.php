@@ -38,7 +38,7 @@ class Login
         }
         else {
             $_SESSION['login-user'] = $username;
-            header("location: /inf-stube14-tasktool/index.php");
+            header("location: /index.php");
 
             return true;
         }

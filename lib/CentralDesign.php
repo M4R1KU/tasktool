@@ -7,15 +7,15 @@ class CentralDesign
 {
     private $pagefolder = 'pages/';
     private $defaultsite = 'index';
-    private $currentsite;
+    private $requestedsite;
 
     public function __construct()
     {
         // process GET-Param site
         if (!empty($_GET['site'])) {
-            $this->currentsite = $_GET['site'];
+            $this->requestedsite = $_GET['site'];
         } else {
-            $this->currentsite = $this->defaultsite;
+            $this->requestedsite = $this->defaultsite;
         }
     }
 
@@ -24,7 +24,13 @@ class CentralDesign
      */
     public function loadPage()
     {
-        $path = $this->pagefolder . $this->currentsite . '.php';
+        if(!empty($_SESSION['login-user']) || $_GET['site'] == '') {
+            $path = $this->pagefolder . $this->requestedsite . '.php';
+        }
+        else {
+            $path = $this->pagefolder . 'loginsite.php';
+        }
+
         if (file_exists($path)) {
             require_once($path);
         } else {
@@ -36,8 +42,8 @@ class CentralDesign
      * Current main page
      * @return string
      */
-    public function getCurrentSite()
+    public function getRequestedSite()
     {
-        return $this->currentsite;
+        return $this->requestedsite;
     }
 }

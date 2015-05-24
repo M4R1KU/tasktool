@@ -1,44 +1,34 @@
 <div class="container">
-<div class="row">
-  <div class="col-md-4">
-    <h2>Test Connection</h2>
+    <div class="col-md-12"><h2>Do you've any problems with your task scheduling?</h2>
 
-<!--
-      require_once('lib/ConnectionHandler.php');
+        <p>Then we've a very good solution for you!</p>
+
+        <p>With our tool you can submit your homework and get a good overview.</p>
+
+    </div>
+    <br>
+
+    <div class="col-md-10">
+        <h3>Description</h3>
+
+        <p>In order not to lose your overview, you can easily submit your homework and always look what to do.</p>
+
+        <p>Go to the Page "Home", where you can create a task.</p>
+
+        <p>After you have entered a task, they will all be displayed to you. So you can look at them all.</p>
+
+        <p><a class="btn btn-default" href="index.php" role="button">Create task &raquo;</a></p>
+    </div>
+
+    <br>
+
+    <div class="col-md-7">
+        <h3>Developpers</h3>
+
+        <p>We're two future computer scientists, which are still in their apprenticeship.</p>
+
+        <p>This website ir orginated from a PHP project.</p>
 
 
-      $query = 'SELECT * FROM USER ';
-
-      $statement = ConnectionHandler::getConnection()->prepare($query);
-      $statement->execute();
-
-      $result = $statement->get_result();
-      if (!$result) {
-          throw new Exception($statement->error);
-      }
-
-      $rows = array();
-      while ($row = $result->fetch_object()) {
-          $rows[] = $row;
-      }
-
-      echo '<ul>';
-      foreach ($rows as $row ) {
-          echo "<li>{$row->name} / {$row->email} / {$row->username} </li>";
-      }
-      echo '</ul>';
-      -->
-
-  </div>
-  <div class="col-md-4">
-    <h2>Info 2</h2>
-    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
- </div>
-  <div class="col-md-4">
-    <h2>Info 2</h2>
-    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-  </div>
-</div>
+    </div>
 </div>

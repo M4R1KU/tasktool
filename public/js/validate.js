@@ -70,7 +70,7 @@ $(document).ready(function () {
                 $(u).addClass("validation-error");
                 $(rb).attr("disabled", "disabled");
             }
-        })
+        });
     }
 
 });

@@ -1,7 +1,6 @@
 <div class="container">
     <?php
     require_once('lib/Login.php');
-    require_once('lib/LoginScript.php');
     require_once('lib/Validator.php');
     $login = new Login();
     $validator = new Validator();

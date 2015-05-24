@@ -24,7 +24,7 @@ class CentralDesign
      */
     public function loadPage()
     {
-        if(!empty($_SESSION['login-user']) || $_GET['site'] == '') {
+        if(!empty($_SESSION['login-user']) || empty($_GET['site'])) {
             $path = $this->pagefolder . $this->requestedsite . '.php';
         }
         else {

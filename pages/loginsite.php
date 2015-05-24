@@ -31,7 +31,7 @@
                     $email = null;
                     $username = null;
                     $password = null;
-                    echo '<div class="alert alert-dismissible alert-success "><button type="button" class="close" data-dismiss="alert">×</button><h4>Registration succeded!</h4></div>';
+                    echo '<div class="alert alert-dismissible alert-success"><button type="button" class="close" data-dismiss="alert">×</button><h4>Registration succeded!</h4></div>';
                 }
             } else {
 
@@ -60,7 +60,7 @@
 
     function callLogErrorScript()
     {
-        echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><h4>Authentication Failed!<br></h4><p>Please try again</p></div>';
+        echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><h4>Authentification Failed!<br></h4><p>Please try again</p></div>';
     }
 
     function callRegErrorScript()
@@ -119,7 +119,7 @@
                     <input type="password" class="form-control" name="password" id="password" placeholder="Password"
                            required data-container="body" data-toggle="popover"
                            data-placement="left" data-trigger="focus"
-                           data-content="at least eight symbols containing at least one number, one lower and one upper letter"
+                           data-content="at least eight symbols containing, at least one number, one lower and one upper letter"
                            data-original-title="Password"></div>
 
                 <div class="form-group"><label for="password">Repeat Password</label>

@@ -1,5 +1,7 @@
-<?php
+<button type="button" class="btn btn-primary btn-lg col-lg-6 col-lg-offset-3" data-toggle="modal" data-target="#myModal">Create new Task</button>
 
+<?php
+require_once('lib/DisplayTasks.php');
 require_once('lib/CreateTask.php');
 $create = new CreateTask();
 
@@ -10,13 +12,11 @@ $type = null;
 $priority = null;
 if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty($_POST['enddate']) && !empty($_POST['select-type']) && !empty($_POST['select-priority'])) {
 
-
-
     $subject = htmlspecialchars($_POST['select-subject']);
     $description = htmlspecialchars($_POST['description']);
     $date = htmlspecialchars($_POST['enddate']);
     $type = htmlspecialchars($_POST['select-type']);
-    $priority = htmlspecialchars($_POST['select-priority']);
+    $priority = intval(htmlspecialchars($_POST['select-priority']));
 
     if ($create->createNewTask($description, $subject, $type, $date, $priority)){
         $subject = null;
@@ -26,15 +26,10 @@ if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty(
         $priority = null;
     }
 
+
 }
 ?>
 
-
-
-<!--<div class="alert alert-dismissible alert-success" id="ctask-success"><button type="button" class="close" data-dismiss="alert">×</button><h4>Registration succeded!</h4></div>
-<div class="alert alert-dismissible alert-danger" id="ctask-danger"><button type="button" class="close" data-dismiss="alert">×</button><h4>Registration succeded!</h4></div>-->
-
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">

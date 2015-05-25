@@ -37,8 +37,25 @@ class Login
             return false;
         }
         else {
-            $_SESSION['login-user'] = $username;
-            header("location: /index.php");
+
+            $query = 'SELECT id_user FROM user WHERE username = ?';
+
+            $statement = ConnectionHandler::getConnection()->prepare($query);
+            $statement->bind_param('s', $username);
+
+            if (!$statement->execute()) {
+                throw new Exception($statement->error);
+            }
+            else {
+                $result = $statement->get_result();
+                $row = $result->fetch_row();
+
+                $_SESSION['user-id'] = intval($row[0]);
+                $_SESSION['login-user'] = $username;
+                header("location: /index.php");
+
+            }
+
 
             return true;
         }

@@ -138,6 +138,15 @@ a:focus {
 #ctask-danger {
     display: none;
 }
+.sort {
+    padding: 0;
+}
+.ctask {
+    padding: 0;
+}
+.btn-ctask {
+    width: 100%;
+}
 
 @media (max-width: 962px){
     .navbar {
@@ -168,6 +177,11 @@ a:focus {
     }
 
 
+}
+@media (max-width: 1199px) {
+    .sort {
+        margin-top: 20px;
+    }
 }
 
 

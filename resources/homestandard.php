@@ -17,8 +17,9 @@
         <li>If the task is over you can select it as "Finished"</li>
         <br>
         <li>It'll be possible to create your own subjects and to set its color</li>
-
     </ul>
     <br>
 
     <p>Do you think it's a good idea?<br> So sign up and begin to create your tasks!</p>
+    <br>
+    <a href="index.php?site=loginsite" class="btn btn-primary" >Sign up</a>

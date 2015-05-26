@@ -1,9 +1,26 @@
-<button type="button" class="btn btn-primary btn-lg col-lg-6 col-lg-offset-3" data-toggle="modal" data-target="#myModal">Create new Task</button>
+<div class="col-lg-4 ctask">
+    <button type="button" class="btn btn-primary btn-lg btn-ctask" data-toggle="modal" data-target="#myModal">Create new Task
+    </button>
+</div>
+<div class="form-group col-lg-4 col-lg-offset-4 sort">
+    <label for="sort" class="">Sort by...</label>
+    <select class="form-control col-lg-4" id="sort">
+        <option>Sort by priority ascending</option>
+        <option>Sort by priority descending</option>
+        <option>Sort by enddate</option>
+        <option>Sort by task type</option>
+    </select>
+</div>
 
 <?php
 require_once('lib/DisplayTasks.php');
 require_once('lib/CreateTask.php');
+$display = new DisplayTasks();
 $create = new CreateTask();
+
+
+$display->sortByPriority();
+
 
 $subject = null;
 $description = null;
@@ -18,7 +35,7 @@ if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty(
     $type = htmlspecialchars($_POST['select-type']);
     $priority = intval(htmlspecialchars($_POST['select-priority']));
 
-    if ($create->createNewTask($description, $subject, $type, $date, $priority)){
+    if ($create->createNewTask($description, $subject, $type, $date, $priority)) {
         $subject = null;
         $description = null;
         $date = null;

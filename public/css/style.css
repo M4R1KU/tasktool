@@ -3,7 +3,6 @@
 
 body {
     background-color: #eeeeee;
-    overflow: hidden;
 }
 
 .navbar {
@@ -120,18 +119,7 @@ a:focus {
     resize: none;
     padding: 5px;
 }
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #e3e3e3;
-}
-.footer-text {
-    margin: auto;
-    max-width: 600px;
-    line-height: 60px;
-}
+
 #ctask-success {
     display: none;
 }

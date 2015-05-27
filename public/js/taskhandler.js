@@ -24,29 +24,34 @@ function sortTasks() {
 
     switch (val) {
         case "1":
-            url = '/ajax/sorttaskpasc.php';
+            url = "/ajax/sorttaskpasc.php";
             break;
         case "2":
-            url = '/ajax/sorttaskpdesc.php';
-            console.log("asdfghjklö");
+            url = "/ajax/sorttaskpdesc.php";
             break;
         case "3":
-            url = '/ajax/sorttaskdate.php';
+            url = "/ajax/sorttaskdate.php";
             break;
         case "4":
-            url = '/ajax/sorttasktype.php';
+            url = "/ajax/sorttasktype.php";
             break;
     }
 
+    console.log(url);
+
     $.ajax({
-        method: 'POST',
-        url: url
-    }).done(function (data) {
-        console.log("fadlkjljkdsflkjsdfalkjdfsakjldfs");
+        method: "POST",
+        url: url,
+        success: showTasks,
+        dataType: 'application/json; charset=utf-8'
+    });
+
+
+    function showTasks(data) {
 
         $(".task-panel").empty();
 
-        $.each(data, function (i, entry) {
+        $.each(data, function (entry) {
             console.log("hallo scheiss script");
             var finished = null;
             if (entry.finished) {
@@ -88,6 +93,5 @@ function sortTasks() {
             $(".task-panel").append(row);
 
         });
-
-    });
+    }
 }

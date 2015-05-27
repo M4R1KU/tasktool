@@ -1,5 +1,5 @@
 <?php
-require_once('lib/ConnectionHandler.php');
+require_once('../lib/ConnectionHandler.php');
 
 $q = $_POST['username'];
 

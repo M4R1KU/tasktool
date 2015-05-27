@@ -1,26 +1,27 @@
+<?php
+require_once('lib/CreateTask.php');
+$create = new CreateTask();
+?>
 <div class="col-lg-4 ctask">
-    <button type="button" class="btn btn-primary btn-lg btn-ctask" data-toggle="modal" data-target="#myModal">Create new Task
+    <button type="button" class="btn btn-primary btn-lg btn-ctask" data-toggle="modal" data-target="#myModal">Create new
+        Task
     </button>
 </div>
 <div class="form-group col-lg-4 col-lg-offset-4 sort">
     <label for="sort" class="">Sort by...</label>
-    <select class="form-control col-lg-4" id="sort">
-        <option>Sort by priority ascending</option>
-        <option>Sort by priority descending</option>
-        <option>Sort by enddate</option>
-        <option>Sort by task type</option>
+    <select class="form-control col-lg-4" id="sort" onchange="sortTasks()">
+        <option value="1">Sort by priority ascending</option>
+        <option value="2">Sort by priority descending</option>
+        <option value="3">Sort by enddate</option>
+        <option value="4">Sort by task type</option>
     </select>
 </div>
 
+<div class="task-panel">
+
+</div>
+
 <?php
-require_once('lib/DisplayTasks.php');
-require_once('lib/CreateTask.php');
-$display = new DisplayTasks();
-$create = new CreateTask();
-
-
-$display->sortByPriority();
-
 
 $subject = null;
 $description = null;

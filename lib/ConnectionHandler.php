@@ -9,7 +9,7 @@ class ConnectionHandler
     public static function getConnection()
     {
         if (self::$connection === null) {
-            $config = require('config.php');
+            $config = require(dirname(__DIR__) . '/config.php');
             $host     = $config['database']['host'];
             $username = $config['database']['username'];
             $password = $config['database']['password'];

@@ -58,7 +58,7 @@ $(document).ready(function () {
     function usernameValidation(str) {
         $.ajax({
             method: 'POST',
-            url: 'getusername.php',
+            url: '/ajax/getusername.php',
             data: {username: str}
         }).done(function (exists) {
             $(u).removeClass("validation-success");

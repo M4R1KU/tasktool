@@ -4,8 +4,8 @@ return array(
 
     'database' => array(
         'host'     => 'localhost:3307',
-        'username' => 'root',
-        'password' => '',
+        'username' => 'mamiadmin',
+        'password' => 'Welcome$15',
         'database' => 'tasktool',
     ),
 

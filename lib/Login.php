@@ -6,7 +6,7 @@ class Login
 
     public function register($name, $email, $username, $password)
     {
-        $query = 'INSERT INTO USER (name, email, username, password) VALUES (?, ?, ?, ?)';
+        $query = 'INSERT INTO user (name, email, username, password) VALUES (?, ?, ?, ?)';
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('ssss', $name, $email, $username, $password);

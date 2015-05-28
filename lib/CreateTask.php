@@ -5,8 +5,23 @@ Class CreateTask
 {
 
 
+    public function updateTask($description, $subject, $type, $enddate, $priority, $tid)
+    {
+        $query = 'UPDATE task SET description = ?, subject_id = ?, task_type_id = ?, enddate = ?, priority = ? WHERE id_task = ?';
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('siisii', $description, $this->selectSubjectId($subject), $this->selectTaskType($type), $enddate, $priority, $tid);
+
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        } else {
+            return true;
+        }
+    }
+
     public function createNewTask($description, $subject, $type, $enddate, $priority)
     {
+
         $query = 'INSERT INTO task (description, subject_id, task_type_id, enddate, priority) VALUES ( ?, ?, ?, ?, ?)';
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
@@ -20,6 +35,7 @@ Class CreateTask
             }
             return false;
         }
+
     }
 
     private function selectTaskId()
@@ -42,7 +58,8 @@ Class CreateTask
         $query = 'INSERT INTO user_task (user_id, task_id) VALUES ( ?, ?)';
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ii',$_SESSION['user-id'], $this->selectTaskId());
+        $user_id = $_SESSION['user-id'];
+        $statement->bind_param('ii', $user_id, $this->selectTaskId());
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);

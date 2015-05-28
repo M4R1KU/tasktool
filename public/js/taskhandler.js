@@ -11,56 +11,56 @@ function deleteTask(btn, tid) {
         method: 'POST',
         url: '/ajax/deletetask.php',
         data: {task_id: tid}
-    }).done(function () {
-        console.log("fadhfasf");
     })
 }
+
+$(document).ready(sortAjaxRequest("/ajax/sorttaskpdesc.php"));
+
 function sortTasks() {
 
     var val = document.getElementById("sort").value;
 
-    var url;
-    console.log(val);
-
     switch (val) {
         case "1":
-            url = "/ajax/sorttaskpasc.php";
+            sortAjaxRequest("/ajax/sorttaskpasc.php");
             break;
         case "2":
-            url = "/ajax/sorttaskpdesc.php";
+            sortAjaxRequest("/ajax/sorttaskpdesc.php");
             break;
         case "3":
-            url = "/ajax/sorttaskdate.php";
+            sortAjaxRequest("/ajax/sorttaskdate.php");
             break;
         case "4":
-            url = "/ajax/sorttasktype.php";
+            sortAjaxRequest("/ajax/sorttasktype.php");
             break;
     }
+}
 
-    console.log(url);
-
+function sortAjaxRequest(url) {
+    console.log("fast geschafft");
     $.ajax({
         method: "POST",
         url: url,
-        success: showTasks,
-        dataType: 'application/json; charset=utf-8'
-    });
-
-
-    function showTasks(data) {
+        dataType: 'json'
+    }).done(function (data) {
 
         $(".task-panel").empty();
 
-        $.each(data, function (entry) {
-            console.log("hallo scheiss script");
-            var finished = null;
+        $.each(data, function (i, entry) {
+            console.log(entry);
+
+            var finished, finishedbtn = null;
             if (entry.finished) {
                 finished = '<span class="glyphicon glyphicon-ok finished" aria-hidden="true"></span>';
+                finishedbtn = '';
             }
+            else{
+                finished = '';
+                finishedbtn = '<button class="btn btn-primary" onclick="setTaskFinished(this, ' + entry.id_task +')"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>';
+            }
+            var priority = entry.priority;
 
-            var priority = null;
-
-            switch (entry.priority) {
+            switch (priority) {
                 case 1:
                     priority = 'High';
                     break;
@@ -71,27 +71,70 @@ function sortTasks() {
                     priority = 'Low';
                     break;
             }
-            var date;
-            var a = entry.enddate;
-            a.split("-");
-            date = a[2] + a[1] + a[0];
-            var row = null;
-            row.append('<div class="panel panel-default" style="border:none>');
-            row.append('<div class="panel-heading" style="background-color: #' + entry.bgcolor + '">');
-            row.append('<span class="task-title">' + entry.name + '</span>');
-            row.append(finished);
-            row.append('</div><div class="panel-body"><h3><b>' + entry.type + '</b></h3>');
-            row.append('<p>' + entry.description + '</p>');
-            row.append('<h4>' + priority + '</h4>');
-            row.append('</div><div class="panel-footer footer">');
-            row.append('<span>' + date + '</span>');
-            row.append('<div class="button-area"><button class="btn btn-primary">');
-            row.append('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>');
-            row.append('</button><button class="btn btn-primary" onclick="deleteTask(this, ' + entry.id_task + ')">');
-            row.append('<span class="glyphicon glyphicon-trash" aria-hidden"true"></span>');
-            row.append('</button></div></div></div>');
-            $(".task-panel").append(row);
 
+            var row = '<div class="panel panel-default" style="border:none">' +
+                            '<div class="panel-heading" style="background-color: #' + entry.bgcolor + '">' +
+                                '<span class="task-title">' + entry.name + '</span>' + finished + '</div>' +
+                        '<div class="panel-body"><h3><b>' + entry.type + '</b></h3>' +
+                                        '<p>' + entry.description + '</p><h4>' + priority + '</h4>'+
+                        '</div>' +
+                        '<div class="panel-footer footer">' +
+                                '<span>' + entry.enddate + '</span>' +
+                                    '<div class="button-area">' +
+                                        finishedbtn +
+                                        '<button class="btn btn-primary" onclick="editTasks(this, ' + entry.id_task + ')">' +
+                                            '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>' +
+                                        '</button>' +
+                                        '<button class="btn btn-primary" onclick="deleteTask(this, ' + entry.id_task + ')">' +
+                                            '<span class="glyphicon glyphicon-trash" aria-hidden"true"></span>' +
+                                        '</button>' +
+                                    '</div>' +
+                                '</div>' +
+
+                        '</div>';
+            $(".task-panel").append(row);
         });
-    }
+
+    });
+}
+
+function setTaskFinished(btn, tid) {
+
+    $(btn).hide();
+
+    $.ajax({
+        method: 'POST',
+        url: '/ajax/settaskfinished.php',
+        data: {task_id: tid}
+    }).done(function (data) {
+        console.log("Task marked: " + data);
+        if (data) {
+            $(btn).parents(".panel-footer").siblings(".panel-heading").first().append('<span class="glyphicon glyphicon-ok finished" aria-hidden="true"></span>');
+        }
+    })
+
+}
+function editTasks(btn, tid) {
+
+    $.ajax({
+        method: 'POST',
+        url: '/ajax/edittasks.php',
+        data: {task_id: tid},
+        dataType: 'json'
+    }).done(function (data){
+        console.log(data);
+
+        $('#select-subject').val(data.name);
+        $('#description').val(data.description);
+        $('#enddate').val(data.enddate);
+        $('#select-type').val(data.type);
+        $('#select-priority').val(data.priority);
+        $('#hidden_id').val(tid);
+
+
+        $('#myModal').modal({
+            show: 'true'
+        });
+    })
+
 }

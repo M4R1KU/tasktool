@@ -6,4 +6,8 @@ $(document).ready(function () {
         $("#navbar-link").toggleClass("show");
         $("#navbar-link").toggleClass("left");
     });
+    $("#createsubject_button").click(function(){
+        console.log($("#hex").text());
+        return false;
+    });
 });

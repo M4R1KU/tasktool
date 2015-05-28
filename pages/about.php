@@ -17,7 +17,7 @@
 
         <p>After you have entered a task, they will all be displayed to you. So you can look at them all.</p>
 
-        <p><a class="btn btn-primary" href="index.php" role="button">Create task &raquo;</a></p>
+        <a class="btn btn-primary" href="index.php" role="button">Create task &raquo;</a>
     </div>
 
     <br>

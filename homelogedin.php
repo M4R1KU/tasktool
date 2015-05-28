@@ -11,7 +11,7 @@ $create = new CreateTask();
     <label for="sort" class="">Sort by...</label>
     <select class="form-control col-lg-4" id="sort" onchange="sortTasks()">
         <option value="1">Sort by priority ascending</option>
-        <option value="2">Sort by priority descending</option>
+        <option value="2" selected>Sort by priority descending</option>
         <option value="3">Sort by enddate</option>
         <option value="4">Sort by task type</option>
     </select>
@@ -28,7 +28,25 @@ $description = null;
 $date = null;
 $type = null;
 $priority = null;
-if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty($_POST['enddate']) && !empty($_POST['select-type']) && !empty($_POST['select-priority'])) {
+if (!empty($_POST['hidden_id'])) {
+
+    $subject = htmlspecialchars($_POST['select-subject']);
+    $description = htmlspecialchars($_POST['description']);
+    $date = htmlspecialchars($_POST['enddate']);
+    $type = htmlspecialchars($_POST['select-type']);
+    $priority = intval(htmlspecialchars($_POST['select-priority']));
+    $tid = intval(htmlspecialchars($_POST['hidden_id']));
+
+    if ($create->updateTask($description, $subject, $type, $date, $priority, $tid)) {
+        $subject = null;
+        $description = null;
+        $date = null;
+        $type = null;
+        $priority = null;
+    }
+
+
+} else if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty($_POST['enddate']) && !empty($_POST['select-type']) && !empty($_POST['select-priority'])) {
 
     $subject = htmlspecialchars($_POST['select-subject']);
     $description = htmlspecialchars($_POST['description']);
@@ -46,10 +64,11 @@ if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty(
 
 
 }
+
 ?>
 
 
-<!-- Modal -->
+<!-- Modal for creating Tasks -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
 
@@ -61,7 +80,6 @@ if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty(
                     <h1 class="modal-title">Create your own Task</h1>
                 </div>
                 <div class="modal-body">
-
 
                     <div class="form-group">
                         <label for="select-subject">Choose the desired subject.</label>
@@ -105,20 +123,22 @@ if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty(
                         <select class="form-control" id="select-priority" name="select-priority" required>
                             <option value="3">Low</option>
                             <option value="2">Normal</option>
-                            <option value="3">High</option>
+                            <option value="1">High</option>
 
                         </select>
                     </div>
+                    <label for="hidden_id"></label>
+                    <input hidden id="hidden_id" name="hidden_id"/>
+
                     <div class="modal-footer">
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary" name="ctask-button" id="ctask-button">Submit
                             </button>
                         </div>
                     </div>
-
                 </div>
             </form>
         </div>
-
     </div>
 </div>
+

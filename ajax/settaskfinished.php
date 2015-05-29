@@ -1,5 +1,5 @@
 <?php
-
+//sql statement to set the task finished
 require_once('../lib/ConnectionHandler.php');
 
 $tid = $_POST['task_id'];

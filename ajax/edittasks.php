@@ -1,4 +1,6 @@
 <?php
+
+//sql statement to edit task
 require_once('../lib/ConnectionHandler.php');
 
 $tid = $_POST['task_id'];

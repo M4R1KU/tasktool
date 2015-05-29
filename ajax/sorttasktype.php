@@ -1,4 +1,5 @@
 <?php
+//sql statement to sort the task by type
 session_start();
 require_once('../lib/ConnectionHandler.php');
 

@@ -1,4 +1,6 @@
 <?php
+
+//sql statement for deleting task
 require_once('../lib/ConnectionHandler.php');
 $tid = intval($_POST['task_id']);
 

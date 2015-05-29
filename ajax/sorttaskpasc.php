@@ -1,4 +1,6 @@
 <?php
+
+//sql statement to sort the task by priority ascending
 session_start();
 require_once('../lib/ConnectionHandler.php');
 

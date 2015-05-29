@@ -1,4 +1,6 @@
 <?php
+//sql statement to get the usernames in the database
+//Validation
 require_once('../lib/ConnectionHandler.php');
 
 $q = $_POST['username'];

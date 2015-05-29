@@ -2,6 +2,7 @@
  * Created by bkunzm on 27.05.2015.
  */
 
+//ajax request to delete a task
 function deleteTask(btn, tid) {
 
     var parent = $(btn).closest("div.panel-default");
@@ -13,9 +14,11 @@ function deleteTask(btn, tid) {
         data: {task_id: tid}
     })
 }
-
+//standard sort when the page loads
 $(document).ready(sortAjaxRequest("/ajax/sorttaskpdesc.php"));
 
+
+//check for sorting method
 function sortTasks() {
 
     var val = document.getElementById("sort").value;
@@ -36,6 +39,7 @@ function sortTasks() {
     }
 }
 
+//ajax request to sort the task
 function sortAjaxRequest(url) {
     console.log("fast geschafft");
     $.ajax({
@@ -72,6 +76,8 @@ function sortAjaxRequest(url) {
                     break;
             }
 
+            //each task will be formatted in the next lines of code
+
             var row = '<div class="panel panel-default" style="border:none">' +
                             '<div class="panel-heading" style="background-color: #' + entry.bgcolor + '">' +
                                 '<span class="task-title">' + entry.name + '</span>' + finished + '</div>' +
@@ -98,6 +104,7 @@ function sortAjaxRequest(url) {
     });
 }
 
+//ajax request to set the task finished
 function setTaskFinished(btn, tid) {
 
     $(btn).hide();
@@ -114,6 +121,8 @@ function setTaskFinished(btn, tid) {
     })
 
 }
+
+//ajax request to edit a task
 function editTasks(btn, tid) {
 
     $.ajax({

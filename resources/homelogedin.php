@@ -74,7 +74,7 @@ if (!empty($_POST['hidden_id'])) {
 
         <!-- Modal content-->
         <div class="modal-content">
-            <form action="index.php" method="post" class="create-task" name="create-task">
+            <form action="../index.php" method="post" class="create-task" name="create-task">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h1 class="modal-title">Create your own Task</h1>

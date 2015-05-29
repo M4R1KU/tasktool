@@ -76,13 +76,15 @@ function sortAjaxRequest(url) {
                     break;
             }
 
+            description = entry.description.replace(/\n/g, "<br>");
+
             //each task will be formatted in the next lines of code
 
             var row = '<div class="panel panel-default" style="border:none">' +
                             '<div class="panel-heading" style="background-color: #' + entry.bgcolor + '">' +
                                 '<span class="task-title">' + entry.name + '</span>' + finished + '</div>' +
                         '<div class="panel-body"><h3><b>' + entry.type + '</b></h3>' +
-                                        '<p>' + entry.description + '</p><h4>' + priority + '</h4>'+
+                                        '<p>' + description + '</p><h4>' + priority + '</h4>'+
                         '</div>' +
                         '<div class="panel-footer footer">' +
                                 '<span>' + entry.enddate + '</span>' +

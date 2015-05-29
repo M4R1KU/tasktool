@@ -9,5 +9,5 @@
         require_once("logedin.php")
         ?>
     </div>
-    <div class="trigger"><img src="public/pictures/menu-item.jpg"</div>
+    <div class="trigger"><img src="public/pictures/menu-item.jpg" alt="item to toggle the menu"></div>
 </nav>

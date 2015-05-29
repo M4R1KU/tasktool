@@ -15,7 +15,6 @@
         <li>Write a description for the task</li>
         <li>Set an enddate and priorities</li>
         <li>If the task is over you can select it as "Finished"</li>
-        <br>
         <li>It'll be possible to create your own subjects and to set its color</li>
     </ul>
     <br>

@@ -4,9 +4,10 @@ require_once('ConnectionHandler.php');
 Class CreateTask
 {
 
-
     public function updateTask($description, $subject, $type, $enddate, $priority, $tid)
     {
+
+
         $query = 'UPDATE task SET description = ?, subject_id = ?, task_type_id = ?, enddate = ?, priority = ? WHERE id_task = ?';
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
@@ -100,7 +101,6 @@ Class CreateTask
             return $row[0];
         }
     }
-
 }
 
 ?>

@@ -1,9 +1,11 @@
 <?php
-require_once('lib/CreateTask.php');
-$create = new CreateTask();
+require_once('lib/Task.php');
+$task = new Task();
+
 ?>
 <div class="col-lg-4 ctask">
-    <button type="button" class="btn btn-primary btn-lg btn-ctask" data-toggle="modal" data-target="#myModal">Create new
+
+    <button type="button" class="btn btn-primary btn-lg btn-ctask" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create new
         Task
     </button>
 </div>
@@ -23,50 +25,33 @@ $create = new CreateTask();
 
 <?php
 
-$subject = null;
-$description = null;
-$date = null;
-$type = null;
-$priority = null;
 if (!empty($_POST['hidden_id'])) {
 
-    $subject = htmlspecialchars($_POST['select-subject']);
-    $description = htmlspecialchars($_POST['description']);
-    $date = htmlspecialchars($_POST['enddate']);
-    $type = htmlspecialchars($_POST['select-type']);
-    $priority = intval(htmlspecialchars($_POST['select-priority']));
-    $tid = intval(htmlspecialchars($_POST['hidden_id']));
+    $task->setSubject(htmlspecialchars($_POST['select-subject']));
+    $task->setDescription(htmlspecialchars($_POST['description']));
+    $task->setDate(htmlspecialchars($_POST['enddate']));
+    $task->setType(htmlspecialchars($_POST['select-type']));
+    $task->setPriority(intval(htmlspecialchars($_POST['select-priority'])));
+    $task->setTaskid(intval(htmlspecialchars($_POST['hidden_id'])));
 
-    if ($create->updateTask($description, $subject, $type, $date, $priority, $tid)) {
-        $subject = null;
-        $description = null;
-        $date = null;
-        $type = null;
-        $priority = null;
+    if (!$task->updateTask()) {
+        throw new Exception("Fehler gefunden: Updaten den Tasks fehlgeschlagen!");
     }
 
+} else if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty($_POST['enddate']) && !empty($_POST['select-type']) && !empty($_POST['select-priority'])){
 
-} else if (!empty($_POST['select-subject']) && !empty($_POST['description']) && !empty($_POST['enddate']) && !empty($_POST['select-type']) && !empty($_POST['select-priority'])) {
+    $task->setSubject(htmlspecialchars($_POST['select-subject']));
+    $task->setDescription(htmlspecialchars($_POST['description']));
+    $task->setDate(htmlspecialchars($_POST['enddate']));
+    $task->setType(htmlspecialchars($_POST['select-type']));
+    $task->setPriority(intval(htmlspecialchars($_POST['select-priority'])));
 
-    $subject = htmlspecialchars($_POST['select-subject']);
-    $description = htmlspecialchars($_POST['description']);
-    $date = htmlspecialchars($_POST['enddate']);
-    $type = htmlspecialchars($_POST['select-type']);
-    $priority = intval(htmlspecialchars($_POST['select-priority']));
-
-    if ($create->createNewTask($description, $subject, $type, $date, $priority)) {
-        $subject = null;
-        $description = null;
-        $date = null;
-        $type = null;
-        $priority = null;
+    if (!$task->createNewTask()) {
+        throw new Exception("Fehler gefunden: Konnte keinen neuen Task erstellen!");
     }
-
-
 }
 
 ?>
-
 
 <!-- Modal for creating Tasks -->
 <div class="modal fade" id="myModal" role="dialog">

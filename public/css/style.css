@@ -144,9 +144,9 @@ a:focus {
 .footer {
     height: 60px;
 }
-.finished {
+#finished {
     float: right;
-    font-size: 20px;
+    font-size: 30px;
 }
 .task-title {
     font-size: 40px;
@@ -167,7 +167,7 @@ a.btn-primary {
     margin-top: 30px;
 }
 
-#contact-content a{
+#contact-content a {
     margin-top: 50px;
 }
 

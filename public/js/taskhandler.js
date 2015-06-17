@@ -55,7 +55,7 @@ function sortAjaxRequest(url) {
 
             var finished, finishedbtn = null;
             if (entry.finished) {
-                finished = '<span class="glyphicon glyphicon-ok finished" aria-hidden="true"></span>';
+                finished = '<span class="glyphicon glyphicon-ok" id="finished" aria-hidden="true"></span>';
                 finishedbtn = '';
             }
             else{
@@ -118,7 +118,7 @@ function setTaskFinished(btn, tid) {
     }).done(function (data) {
         console.log("Task marked: " + data);
         if (data) {
-            $(btn).parents(".panel-footer").siblings(".panel-heading").first().append('<span class="glyphicon glyphicon-ok finished" aria-hidden="true"></span>');
+            $(btn).parents(".panel-footer").siblings(".panel-heading").first().append('<span class="glyphicon glyphicon-ok" id="finished" aria-hidden="true"></span>');
         }
     })
 
